@@ -1,20 +1,20 @@
-<%- include('partials/header') %>
+<%- include('partials/loginNav') %>
 
 <div class="container">
-  <div class="jumbotron centered">
-    <i class="fas fa-key fa-6x"></i>
-    <h1 class="display-3">Secrets</h1>
-    <p class="secret-text">Don't keep your secrets, share them anonymously!</p>
+
+    <h3 class="confess-heading">Don't keep your secrets, share them anonymously!</h3>
 
     <form action="/submit" method="POST">
 
       <div class="form-group">
-        <input type="text" class="form-control text-center" name="secret" placeholder="What's your secret?">
+        <input type="text" class="form-control input-form" name="title" value="" placeholder="Write Title Of Your Story" autocomplete="off">
+        <textarea type="text" rows="8" cols="80" class="form-control" name="content" placeholder="Write your confession here..."></textarea>
+
       </div>
-      <button type="submit" class="btn btn-dark">Submit</button>
+      <button type="submit" class="btn btn-secondary" name="button">Submit</button>
     </form>
 
 
-  </div>
+
 </div>
 <%- include('partials/footer') %>

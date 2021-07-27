@@ -1,25 +1,36 @@
 <%- include('partials/header') %>
 
-<div class="container mt-5">
-  <h1>Login</h1>
+<div class="container mt-5" id="login">
+
 
   <div class="row">
     <div class="col-sm-8">
       <div class="card">
         <div class="card-body">
+          <h1>Sign In</h1>
 
           <!-- Makes POST request to /login route -->
           <form action="/login" method="POST">
             <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" class="form-control" name="username">
+
+              <input  type="email" class="form-control signin-input" name="username" placeholder="Enter email">
             </div>
             <div class="form-group">
-              <label for="password">Password</label>
-              <input type="password" class="form-control" name="password">
+
+              <input type="password" class="form-control signin-input" name="password" placeholder="Enter password">
             </div>
-            <button type="submit" class="btn btn-dark">Login</button>
+            <button type="submit" class="btn btn-dark form-btn">Sign In</button>
           </form>
+
+          <hr style="background-color:grey;">
+          <div style="text-align:center;">
+            <a href="/register">
+              <button class="btn btn-primary login-signup-btn" type="button" name="button">
+                Sign up New Account
+              </button>
+            </a>
+          </div>
+
 
         </div>
       </div>
@@ -27,8 +38,16 @@
 
   <div class="col-sm-4">
       <div class="card">
+
         <div class="card-body">
-          <a class="btn btn-block btn-social btn-google" href="/auth/google" role="button">
+          <table width="100%">
+          <tr>
+          <td><hr style="background-color:grey;" /></td>
+          <td style="width:1px; padding: 0 10px; white-space: nowrap;">OR</td>
+          <td><hr style="background-color:grey;"/></td>
+          </tr>
+          </table>
+          <a style="margin-top:12px;" class="btn btn-block btn-social btn-google" href="/auth/google" role="button">
             <i class="fab fa-google"></i>
             Sign In with Google
           </a>

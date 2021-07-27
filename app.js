@@ -20,7 +20,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.set("view engine","ejs");
 
 app.use(session({
-  secret:"this is a secret",
+  secret:process.env.SECRET,
   resave:false,
   saveUninitialized:false
 }));
@@ -28,15 +28,18 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-mongoose.connect("mongodb://localhost:27017/userDB",{useNewUrlParser: true,useUnifiedTopology: true});
+mongoose.connect("mongodb://u1be15n0hnqnhlz5qpij:s3AdCk4kzilyVxxTVAbR@bqj27j8zwcbulyr-mongodb.services.clever-cloud.com:27017/bqj27j8zwcbulyr",{useNewUrlParser: true,useUnifiedTopology: true});
 mongoose.set("useCreateIndex",true);
 
 const userSchema=new mongoose.Schema({
   email:String,
-  password: String,
+  password:String,
   googleId: String,
   facebookId: String,
-  secret:String
+  secret:{
+    title:String,
+    content:String
+  }
 });
 
 userSchema.plugin(passportLocalMongoose);
@@ -83,7 +86,6 @@ function(accessToken, refreshToken, profile, cb){
 });
 }
 ));
-
 app.get("/",function(req,res){
   res.render("home");
 });
@@ -113,16 +115,23 @@ app.get("/register",function(req,res){
 });
 
 app.get("/secrets",function(req,res){
-  // if(req.isAuthenticated()){
-  //   res.render("secrets");
-  // }else{
-  //   res.redirect("/login");
-  // }
-  User.find({secret:{$ne:null}},function(err,foundUsers){
-    res.render("secrets",{userSecrets:foundUsers});
-  });
+  if(req.isAuthenticated()){
+    User.find({secret:{$ne:null}},function(err,foundUsers){
+      res.render("secrets",{userSecrets:foundUsers});
+    });
+  }else{
+    res.redirect("/login");
+  }
 
 });
+
+app.get("/confession",function(req,res){
+  res.render("confession");
+});
+
+app.get("/write",function(req,res){
+  res.render("write");
+})
 
 app.get("/submit",function(req,res){
   if(req.isAuthenticated()){
@@ -134,18 +143,37 @@ app.get("/submit",function(req,res){
 });
 
 app.post("/submit",function(req,res){
-  const newSecret=req.body.secret;
+  const newContent=req.body.content;
+  const newTitle=req.body.title;
 
   User.findById(req.user._id,function(err,foundUser){
     if(err){
       console.log(err);
     }else{
       if(foundUser){
-        foundUser.secret=newSecret;
+        foundUser.secret.title=newTitle;
+        foundUser.secret.content=newContent;
         foundUser.save(function(){
             res.redirect("/secrets");
         });
 
+      }
+    }
+  });
+});
+
+app.get("/secrets/:customParameter",function(req,res){
+  const pageTitle=req.params.customParameter;
+  console.log(pageTitle);
+  User.findOne({"secret.title":pageTitle},function(err,foundUser){
+    if(err){
+      console.log(err);
+    }else{
+      if(foundUser){
+        res.render("display",{
+          title:foundUser.secret.title,
+          content:foundUser.secret.content
+        });
       }
     }
   });
@@ -225,6 +253,6 @@ req.login(user,function(err){
 });
 });
 /*********************************PASSPORT END**********************************/
-app.listen(3000,function(){
+app.listen(process.env.PORT || 3000,function(){
   console.log("Server started on port 3000");
 });

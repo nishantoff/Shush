@@ -1,16 +1,43 @@
 <%- include('partials/header') %>
 
-
-<div class="jumbotron centered">
   <div class="container">
-    <i class="fas fa-key fa-6x"></i>
-    <h1 class="display-3">Secrets</h1>
-    <p class="lead">Don't keep your secrets, share them anonymously!</p>
-    <hr>
-    <a class="btn btn-light btn-lg" href="/register" role="button">Register</a>
-    <a class="btn btn-dark btn-lg" href="/login" role="button">Login</a>
+    <div class="home-text">
+      Are those untold secrets haunting you? Make anonymous confessions or read thousands of raw confessions left by others.
+    </div>
+    <div class="row">
+      <div class="column confession col-lg-6">
+        <a href="/confession">
+          <img src="images/confess.jpg" alt="" class="img-fluid">
+          <div class="overlay">
+            <h1 class="nav-text overlay-text">Read raw confession stories</h1>
+          </div>
+        </a>
+
+      </div>
+      <div class="column secret col-lg-6">
+      <a href="/write"><img src="images/secret.jpg" alt="" class="img-fluid">
+        <div class="overlay">
+          <h1 class="nav-text overlay-text">Write Anonymously</h1>
+        </div>
+      </a>
+      </div>
+
+    </div>
+    <!--<a class="btn btn-light btn-lg" href="/register" role="button">Register</a>
+    <a class="btn btn-dark btn-lg" href="/login" role="button">Login</a>-->
 
   </div>
-</div>
+
+  <div id="footer">
+
+        <a class="footer-icon" href="#"><i class="fab fa-twitter"></i></a>
+        <a class="footer-icon" href="#"><i class="fab fa-facebook-f"></i></a>
+        <a class="footer-icon" href="#"><i class="fab fa-instagram"></i></a>
+        <a class="footer-icon" href="#"><i class="fas fa-envelope"></i></a>
+        <%const year=new Date().getFullYear();%>
+        <p class="footer-paragraph">© Copyright <%=year%> Shhh...</p>
+
+  </div>
+
 
 <%- include('partials/footer') %>

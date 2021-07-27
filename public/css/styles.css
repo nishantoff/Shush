@@ -1,16 +1,241 @@
 
-body {
-  background-color: #E8ECEF;
+body, .container{
+
+  background-color: #141414;
+background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
+/*background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
+  background-color: #000000;
+background-image: url("https://www.transparenttextures.com/patterns/inspiration-geometry.png");*/
+
+color: #fff;
+
 }
+
+.container-fluid{
+  padding: 20px;
+}
+
+.nav-item{
+  padding: 0 18px;
+  font-size: 1.2rem;
+}
+
+#shhh{
+  font-family: 'Rock Salt', cursive;
+  font-size: 3rem;
+  transform: rotate(-10deg);
+  pointer-events: none;
+}
+
+
+
+.column{
+  text-align: center;
+  padding: 30px;
+}
+
+.img-fluid{
+  border-radius: 95%;
+}
+
+.column:hover .overlay{
+  opacity: 1;
+}
+
+.nav-text{
+font-family: 'Mansalva', cursive;
+}
+
+.overlay{
+  position: absolute;
+  width:79.3%;
+  height: 86.5%;
+  background-color: #e0e0e069;
+  top:6.7%;
+  left: 10.4%;
+  text-align: center;
+  padding-top:40%;
+  opacity: 0;
+  transition: 0.75s ease;
+  border-radius: 95%;
+}
+
 
 .centered {
     padding-top: 200px;
     text-align: center;
 }
 
-.secret-text {
+#secrets{
   text-align: center;
-  font-size: 2rem;
-  color: #fff;
-  background-color: #000;
 }
+
+.secret-text {
+  color: #fff;
+  background-color: #353535d9;
+  border-radius: 10px;
+  padding: 5px 15px 2px;
+  display: inline-block;
+  width: 70%;
+  text-align: left;
+}
+.secret-heading{
+  color: #E09F3E;
+}
+
+a, a:hover{
+  color: #000;
+}
+
+#footer{
+  color: #fff;
+  text-align: center;
+  width: 100%;
+  bottom: 0;
+  padding:10px;
+}
+
+.footer-paragraph{
+  margin: 1% auto 0.6%;
+font-family: 'Mansalva', cursive;
+}
+
+.footer-icon{
+  margin: 2%;
+  color: #fff;
+}
+
+.footer-icon:hover{
+  color: grey;
+}
+
+.home-text{
+  width:70%;
+  text-align: center;
+  margin: auto;
+  font-family: 'Pangolin', cursive;
+  font-size: 1.4rem;
+  background-image: url("images/white-stroke.png");
+}
+
+.confess-img{
+  text-align: center;
+  width: 300px;
+  height: 200px;
+}
+
+.confession-section{
+  padding: 50px;
+  padding-bottom: 35px;
+  background: #353535d9;
+  margin-bottom: 2.5%;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 1);
+  border-radius: 10px;
+font-family: 'Pangolin', cursive;
+
+}
+
+.confess-btn button{
+  background-color: #417505;
+}
+.confess-btn{
+  text-align: center;
+  margin-top: 3.5%;
+}
+
+.confess-heading{
+  color: #f3eb00;
+  font-family: 'Pangolin', cursive;
+  text-align: center;
+  font-weight: bold;
+}
+
+.confession-heading{
+  color: #E09F3E;
+  font-family: 'Pangolin', cursive;
+}
+
+.card{
+  background: #353535d9;
+}
+
+.form-btn{
+   background-color: #606265;
+   border-color: #606265;
+}
+
+.login-signup-btn{
+  text-align: center;
+  padding-left: 80px;
+  padding-right: 80px;
+  /*background-color: #606265;
+  border-color: #606265;*/
+}
+
+#login{
+  text-align: center;
+}
+#register{
+  text-align: center;
+}
+
+.signin-input{
+  text-align: center;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.read-more, .read-more:hover{
+  color: #0881ff;
+  font-size: 0.9rem
+}
+
+.card{
+  border-radius: 10px;
+}
+
+.input-form{
+  height: 80px;
+  font-size: 2rem;
+  background: #000;
+  border-color: #000;
+  color: #fff;
+}
+.input-form:focus{
+  background: #000;
+  border-color: #fff;
+  color: #fff;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px #fff;
+
+}
+.form-control:focus{
+  border-color: #000;
+box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px #fff;
+}
+
+#display{
+  font-family:inherit;
+}
+.display-footer{
+  margin-top: 100px;
+}
+/*
+font-family: 'Mansalva', cursive;
+font-family: 'Mr Dafoe', cursive;
+font-family: 'Bonbon', cursive;
+font-family: 'Dokdo', cursive;
+font-family: 'Dr Sugiyama', cursive;
+font-family: 'Mr Bedfort', cursive;
+font-family: 'Rock Salt', cursive;
+font-family: 'Ruge Boogie', cursive;
+***************************************
+font-family: 'Concert One', cursive;
+font-family: 'Courgette', cursive;
+font-family: 'Handlee', cursive;
+font-family: 'Pangolin', cursive;
+font-family: 'Permanent Marker', cursive;
+*/
+/*
+******************************************
+font-family: 'Risque', cursive;
+*/

@@ -1,0 +1,21 @@
+<%- include('partials/loginNav') %>
+
+<div class="container confession-section" id="display">
+
+  <h1><%=title%></h1>
+  <hr style="background-color:grey;">
+  <p><%=content%></p>
+
+</div>
+
+<div class="display-footer" id="footer">
+
+      <a class="footer-icon" href="#"><i class="fab fa-twitter"></i></a>
+      <a class="footer-icon" href="#"><i class="fab fa-facebook-f"></i></a>
+      <a class="footer-icon" href="#"><i class="fab fa-instagram"></i></a>
+      <a class="footer-icon" href="#"><i class="fas fa-envelope"></i></a>
+      <%const year=new Date().getFullYear();%>
+      <p class="footer-paragraph">© Copyright <%=year%> Shhh...</p>
+
+</div>
+<%- include('partials/footer') %>
